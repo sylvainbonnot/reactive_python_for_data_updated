@@ -1,0 +1,5 @@
+import reactivex as rx
+source = rx.from_(["Alpha","Beta","Gamma","Delta","Epsilon"])
+
+source.subscribe(lambda s: print(f'Subscriber 1: {s}'))
+source.subscribe(lambda s: print(f'Subscriber 2: {s}'))

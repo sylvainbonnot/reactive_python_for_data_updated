@@ -12,4 +12,4 @@ def push_numbers(
 
 
 # rx.of(push_numbers).subscribe(lambda i:print(i))
-create(push_numbers).subscribe(lambda i: print(i))
+create(push_numbers).subscribe(print)

@@ -1,6 +1,6 @@
 import tweepy
 
-bearer_token = "AAAAAAAAAAAAAAAAAAAAACm9fQEAAAAAuSvTNIC3r61P3aR7fFUd84UPApA%3DVGHtquOCARS9f7caP3M5lfn5G2mpJe7GOFx73Q6R8XJcauV5pU"
+bearer_token = "TOKEN_HERE"
 
 # client = tweepy.Client(bearer_token=bearer_token)
 

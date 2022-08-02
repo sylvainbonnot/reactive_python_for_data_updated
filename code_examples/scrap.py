@@ -1,27 +1,27 @@
-import json
-import reactivex as rx
-from reactivex import operators as ops
 import tweepy
 
+bearer_token = "AAAAAAAAAAAAAAAAAAAAACm9fQEAAAAAuSvTNIC3r61P3aR7fFUd84UPApA%3DVGHtquOCARS9f7caP3M5lfn5G2mpJe7GOFx73Q6R8XJcauV5pU"
 
-# Twitter API authentication
-import tweepy
+# client = tweepy.Client(bearer_token=bearer_token)
 
-api_key = consumer_key
-api_secret_key = consumer_secret
-# access_token =  # access_token
-# access_token_secret =  # access_token_secret
-# authorize the API Key
-authentication = tweepy.OAuthHandler(api_key, api_secret_key)
-# authorization to user's access token and access token secret
-authentication.set_access_token(access_token, access_token_secret)
-# call the api
-api = tweepy.API(authentication)
+# Replace with your own search query
+# query = "from:suhemparack -is:retweet"
+# query = "from:sylvainbonnot -is:retweet"
+class IDPrinter(tweepy.StreamingClient):
+    def on_tweet(self, tweet):
+        print(tweet.id)
 
-# Streaming tweets from user timeline
 
-user = "AnalyticsVidhya"
-public_tweet = api.user_timeline(id=user, count=5)
+printer = IDPrinter(bearer_token=bearer_token)
+printer.add_rules(tweepy.StreamRule("France"))
+printer.filter()
+# printer.sample()
 
-for tweet in public_tweet:
-    print("-->", tweet.text)
+# tweets = client.search_recent_tweets(
+#     query=query, tweet_fields=["context_annotations", "created_at"], max_results=10
+# )
+
+# for tweet in tweets.data:
+#     print(tweet.text)
+#     if len(tweet.context_annotations) > 0:
+#         print(tweet.context_annotations)

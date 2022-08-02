@@ -2,7 +2,8 @@ import reactivex as rx
 from reactivex import operators as ops
 import time
 
-source = rx.interval(1).pipe(ops.publish(), ops.ref_count())
+# source = rx.interval(1).pipe(ops.publish(), ops.ref_count())
+source = rx.interval(1).pipe(ops.share())
 
 source.subscribe(lambda s: print(f"Subscriber 1: {s}"))
 
